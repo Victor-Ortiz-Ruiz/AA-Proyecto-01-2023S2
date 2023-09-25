@@ -1,0 +1,63 @@
+---
+title: "Comparación de algoritmos de busqueda de palabras en una base de datos"
+lang: es
+author:
+  - name: Erick Muñoz Alvarado, Michael Sánchez Soto, Diego Solís Penaranda, Christopher Jiménez, Víctor A. Ortiz Ruiz
+    email: \{,viortiz\}\@estudiantec.cr
+
+affiliations:
+  - name: Instituto Tecnológico de Costa Rica
+    department: Maestría en Computación
+date: today
+format:
+  pdf:
+    keep-tex: true
+    documentclass: IEEEtran
+    classoption: [journal]
+    cite-method: biblatex
+    template-partials:
+      - template/title.tex
+      - template/before-body.tex
+    heading: MC6102 Análisis de Algoritmos \\ Prof. Tomás de Camino Beck, Ph.D.
+    date-format: "MMMM YYYY"
+    number-sections: true
+
+abstract: |
+  El uso de funciones de hash permite realizar búsquedas eficientes de datos y se ha implementado ampliamente en minería de datos. El problema que se busca resolver con un algoritmo similar es la búsqueda de nombres en una base de datos. Para ello, se implementarán y compararán tres algoritmos diferentes, y se determinará su tiempo de ejecución para demostrar la eficiencia que proporciona el uso de funciones de hash..
+keywords:
+  - Computer Languages
+  - Embedded Systems
+  - Fault Tolerance
+  - Memory Safety
+  - Operating Systems
+  - Programming
+  - Reliability
+  - Rust Language
+  - µ-kernels
+bibliography: references.bib
+---
+
+<!--#  If you wanna see all references in bib file, put this under "bibliography: references.bib" before the three dashes.
+nocite: | 
+  @*
+ -->
+
+
+{{< include sections/_introduccion.qmd >}}
+
+<!--
+{{< include sections/_rustLanguage.qmd >}}
+
+{{< include sections/_rustUsages.qmd >}}
+
+{{< include sections/_previousWork.qmd >}}
+-->
+
+{{< include sections/_metodologia.qmd >}}
+
+<!--
+{{< include sections/_futureWork.qmd >}}
+-->
+
+{{< include sections/_conclusiones.qmd >}}
+

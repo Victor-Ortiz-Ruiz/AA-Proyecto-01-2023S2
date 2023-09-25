@@ -1,0 +1,3 @@
+# Conclusiones
+
+Se espera que el algoritmo que implementa funciones de hash tenga el menor tiempo de ejecución de los tres.

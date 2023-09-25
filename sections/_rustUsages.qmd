@@ -1,0 +1,36 @@
+# Examples of Rust usage and particular case __(Redox OS)__
+
+There are several examples of μ-kernels developed in Rust, including:
+
+- __Linux kernel modules:__ The Linux kernel is primarily implemented in C, but Rust can be used to develop kernel modules that leverage the safety features of the Rust language to prevent the introduction of memory bugs or synchronization bugs when writing kernel code[@Chen2022LinuxKM].
+  
+- __Redox OS:__ Redox OS is a Unix-like operating system written in Rust that uses a microkernel architecture. The microkernel is written in Rust and provides a minimal set of services, while most of the operating system functionality is implemented as user-space programs[@Matsakis2014TheRL].
+  
+- __Tock OS:__ Tock OS is an embedded operating system written in Rust that uses a microkernel architecture. The microkernel is written in Rust and provides a minimal set of services, while most of the operating system functionality is implemented as user-space programs[@Matsakis2014TheRL].
+
+- __seL4 microkernel:__ The seL4 microkernel is a formally verified microkernel that is written in a subset of the C programming language called CakeML. However, Rust has been used to develop a Rust-based interface to seL4 that provides a safer and more expressive way to interact with the kernel[@bugden2022rust].
+  
+These examples demonstrate the potential of Rust for developing safe and reliable μ-kernels. Rust's safety guarantees and performance make it a good fit for systems programming tasks, and its expressive type system and helpful error messages make it easier to write and maintain code[@Rikte2018UsingRA].
+
+
+## The case of Redox OS
+
+Redox OS is a Unix-like operating system written in Rust, which aims to be secure, reliable, and fast. Rust is a modern programming language that provides memory safety and thread safety, making it an ideal choice for building a secure operating system. Redox OS is a microkernel-based operating system that uses a modular design to provide a high level of flexibility and extensibility[@redoxOS2015].
+
+__Features__
+Redox OS is still in development and is not yet ready for production use. However, it has already made significant progress, with a number of core features and applications already implemented. Some of the key features of Redox OS include:
+
+- A microkernel-based design that provides a high level of security and reliability.
+- A modular design that allows for easy customization and extension.
+- A package manager that makes it easy to install and manage software.
+- A graphical user interface that is built using the Orbital desktop environment.
+- Support for a wide range of programming languages, including Rust, C, C++, Python, and more.
+
+Redox OS is largely inspired by Minix, a Unix-like system with a microkernel that has advanced features such as system modularity, kernel panic resistance, driver reincarnation, protection against bad drivers, and secure interfaces for process communication[@redoxOS2015]. Redox OS also draws inspiration from Plan 9, which brings the concept of "everything is a file" to the highest level, doing all the system communication from the filesystem[@redoxOS2015].
+
+__Research__
+It's worth noting that the term "redox" is also used in scientific research, particularly in the fields of electrochemistry and materials science. For example, there are research papers on electrochemical sensing of nitroaromatic explosives, progress in flow battery research and development, and manganese-based Na-rich materials that boost anionic redox in high-performance layered cathodes for sodium-ion batteries
+[@Wang2004ElectrochemicalSO][@SkyllasKazacos2011ProgressIF][@zhang_qiao_guo_jiang_xu_xu_wang_he_zhou_2019]. However, these topics are unrelated to the Redox OS operating system.
+
+__Conclusion__
+Redox OS is an exciting project that aims to provide a secure, reliable, and fast operating system using Rust. While it is still in development, it has already made significant progress and has a large and active community of developers and users. With its microkernel-based design, modular architecture, and support for a wide range of programming languages, Redox OS has the potential to be a viable alternative to traditional operating systems.

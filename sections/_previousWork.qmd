@@ -1,0 +1,52 @@
+# Previous Work
+
+## Rustpi
+
+Regarding previous work in using Rust for implementing µ-kernels,
+[@liang2021rustpi] shows a µ-kernel operating system implement in the Rust
+programming language. It was made with the purpose of exploring how modern
+language features like the ones in Rust can help build a reliable µ-kernel
+operating system. In this operating system isolations between µ-kernel server
+are achieved by using features of the Rust programming language instead of
+expensive hardware mechanism. Additionally, features like control-flow
+integrity and unwinding enable hardware transient fault detection and error
+recovery without leaking of resources. Finally, the design used in
+[@liang2021rustpi] is also applicable to other Rust µ-kernel operating systems,
+or even the Linux kernel.
+
+## Zero Kernel Operating System
+
+[@restivo2020zero] talks about how, historically, memory corruption errors have
+accounted for a large portion of kernel bugs; and how such errors are difficult
+to detect and avoid in memory-unsafe programming languages such as C. To
+mitigate this class of bugs [@restivo2020zero] created an operating system in
+Rust, a memory safe language.
+
+Rust is a programming language that guarantees memory-safety while remaining as
+fast and flexible as other systems languages (like C) yet some operations
+necessary for operating systems do not fit within the scope of memory-safety.
+This is not a limitation because Rust also lets you specify that the compiler
+checks for memory-safety should not be executed inside a block
+[@klabnik2023rust], but this also requires some other actions from the
+developers to minimize the scope of memory-safety errors. To do this, usually,
+µ-kernels isolate and reduce privilege by moving parts of the traditional
+kernel into userspace services. The problem with this is that the effectiveness
+is limited by the inflexibility of modern hardware.
+
+To solve this issue the Zero Kernel Operating System (ZKOS) emphasizes
+high-level ideas of compartmentalization and least privileges on a _tagged
+architecture_. Instead of relying on the Ring model and paging, a tagged
+architecture allows ZKOS to isolate at the memory word level and provide
+disjoint privileges. To do this ZKOS slices kernelspace and userspace into
+fine-grained components based on function and then defines specific entry and
+exit points between components and composes policies to limit component
+transitions and privileges. This strategy increases the precision of isolation
+and privilege, and complements the compile-time and runtime checks that Rust
+performs to reduce the scope of bugs.
+
+## Secure Embedded Systems Need µ-kernels
+
+Secure embedded systems are becoming increasingly important as embedded systems become more complex and connected to networks. One approach to achieving security in embedded systems is through the use of microkernels, also known as μ-kernels. Microkernels are small, lightweight kernels that provide only the most basic services required for an operating system to function, such as memory management and inter-process communication [@Jero2021PracticalPO]. By minimizing the amount of code running in kernel mode, microkernels reduce the attack surface of the system and make it easier to verify the correctness of the kernel code [@Mun2020EnsuringSA].
+
+Microkernels are essential for secure embedded systems. As electronic devices become more popular and trusted with sensitive data, security threats become a significant issue. Commodity computer systems are not well-defended against security threats, as we know from the PC world. Similarly, embedded systems are also vulnerable to security threats [@Heiser2005SecureES][@Heiser2005SecureESII]. Microkernels are the best approach for delivering truly trustworthy computer systems in the foreseeable future. They provide the foundation for building secure as well as real-time aware systems. Microkernels learned to support hardware-provided virtualization features, morphing them into microhypervisors. Microkernels are a perfect fit for secure embedded systems as they provide the foundation for building secure as well as real-time aware systems [@Heiser2007TowardsTC][@Lackorzynski2016DemoAT]. Microkernels are designed to be small, simple, and secure, which makes them ideal for embedded systems. They provide a minimal set of services, which reduces the attack surface and makes it easier to verify the correctness of the system. Microkernels also provide strong isolation between components, which helps prevent security breaches from spreading [@Lackorzynski2016DemoAT][@Jero2021PracticalPO].
+

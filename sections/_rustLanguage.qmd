@@ -1,0 +1,68 @@
+
+# The Rust Language
+
+Rust is a modern programming language designed for developing reliable and efficient systems that take full advantage of modern hardware[@Matsakis2014TheRL]. It is a statically-typed language that provides strong guarantees about isolation, concurrency, and memory safety [@Matsakis2014TheRL][@Bugden2022RustTP]. Rust offers fine-grained control over memory representations, with direct support for stack allocation and contiguous record storage[@Matsakis2014TheRL]. The language balances such controls with the absolute requirement for safety: Rust's type system and runtime guarantee the absence of data races, buffer overflows, stack overflows, and accesses to uninitialized or deallocated memory[@Matsakis2014TheRL].
+
+Rust is a systems programming language that is fast, safe, and concurrent[@Kshirsagar2021EpiRustTA]. It is designed to be a low-level language that provides the control and performance of C and C++, but with memory safety and thread safety guarantees[@Kshirsagar2021EpiRustTA][@Bugden2022RustTP]. Rust's ownership model and borrow checker ensure that programs are free from memory errors such as null pointer dereferences, dangling pointers, and use-after-free errors[@Bugden2022RustTP]. Rust also has a strong focus on concurrency, with support for lightweight threads (called "tasks") and message passing between tasks[@Matsakis2014TheRL].
+
+![Average Memory usage](images/Average Memory usage.png){width=40%}
+
+Rust is gaining increased attention from software developers since it was introduced to the world by Mozilla in 2010
+[@Bugden2022RustTP]. Recent experimental results in benchmarking research show Rust's overall superiority over other well-established languages in terms of performance, safety, and security[@Bugden2022RustTP]. Rust is being used in a variety of domains, including systems programming, web development, game development, and scientific computing
+
+## Some characteristics of Rust 
+
+Rust is designed for developing reliable and efficient systems that take full advantage of modern hardware. Some of the key features of Rust language are:
+
+- __Memory safety:__ Rust's ownership and borrowing system ensures that memory is managed safely, preventing common errors such as null pointer dereferences, buffer overflows, data races, stack overflows, and accesses to uninitialized or deallocated memory[@Matsakis2014TheRL].
+
+- __Concurrency and parallelism:__ Rust's ownership system enables safe concurrency, allowing multiple threads to access the same data without data races, and supports building applications and libraries that fully utilize modern hardware for concurrency and parallelism[@Matsakis2014TheRL].
+
+- __Fine-grained control over memory representations:__ Rust allows fine-grained control over memory representations, with direct support for stack allocation and contiguous record storag[@Matsakis2014TheRL].
+
+- __Static type system:__ Rust's static type system is safe and expressive and provides strong guarantees about isolation, concurrency, and memory safety[@Matsakis2014TheRL][@Sharma2019MasteringR].
+
+- __Ownership model and borrow checker:__ Rust's ownership model and borrow checker ensure that programs are free from memory errors such as null pointer dereferences, dangling pointers, and use-after-free errors[@Sharma2019MasteringR].
+
+- __Performance:__ Rust offers a clear performance model, making it easier to predict and reason about program efficiency [@Matsakis2014TheRL]. Rust is designed to be fast, with performance comparable to C and C++ [@Fulton2021BenefitsAD].
+
+![Average CPU Time](images/Average CPU time.png){width=40%}
+
+- __Safety:__ Rust is a safe language with high performance, and recent experimental results in benchmarking research show Rust's overall superiority over other well-established languages in terms of performance, safety, and security[@Bugden2022RustTP].
+
+- __Cross-language program analysis:__ Rust can be used in kernel development and multilingual Rust applications containing external C code, where the safety features of the Rust language are leveraged to prevent the introduction of memory bugs or synchronization bugs when writing kernel code[@Chen2022LinuxKM][@Hu2022CRUSTTA].
+
+
+## Challenge in adopting Rust for system programming
+
+Rust is a low-level programming language known for its unique approach to memory-safe systems programming and for its steep learning curve[@zeng2019identifying]. Some of the challenges in adopting Rust for systems programming are:
+
+- __Steep learning curve:__ Rust has a steep learning curve, which can make it difficult for new users to get started [@zeng2019identifying]. Experienced programmers are capable of learning new programming languages independently using various available resources. In a study on how experienced programmers learn Rust, it was found that users spend 43% of online time viewing example code and that programmers appreciate in-line compiler errors, choosing to refresh, on average, every 30.6 seconds after first discovering this feature[@Abtahi2020LearningRH].
+
+- __Lack of accessible features:__ Certain key features, idioms, and integration patterns in Rust are not easily accessible to new users[@zeng2019identifying]. 
+
+- __Limited ecosystem:__ Rust is a relatively new language, and its ecosystem is still developing[@Sharma2019MasteringR]. This can make it difficult to find libraries and tools for certain tasks.
+
+- __Interoperability with C:__ Rust can be used in multilingual Rust applications containing external C code, but memory security vulnerabilities can occur due to the intrinsically unsafe nature of C and the improper interactions between Rust and C[@Matsakis2014TheRL]. This can make it challenging to write safe and secure code when working with C.
+
+![Rust and C interoperability $\\$ https://dev.to/apollolabsbin/rust-ffi-and-bindgen-integrating-embedded-c-code-in-rust-26j6](images/Code - Rust interacts with C.png){fig-align="right" width=50%}
+
+- __Limited documentation:__ Rust's documentation is improving, but it can still be difficult to find clear and concise explanations of certain language features[@Sharma2019MasteringR].
+
+- __Limited community support:__ Rust has a growing community, but it is still smaller than the communities of more established languages like C and C++[@costanzo2021performance]. This can make it more difficult to find help and support when working with Rust.
+
+
+## Two pioneering companies with Rust
+
+Rust is used in a variety of applications, including systems programming, web development, game development, and more. Rust is also used in some blockchain and cryptocurrency projects[@Fulton2021BenefitsAD].
+
+Two companies that have been adopting Rust for systems programming tasks are:
+
+- __Dropbox:__ Dropbox has been using Rust for several years to improve the performance and reliability of its infrastructure[@Fulton2021BenefitsAD]. Rust has been used to build a new storage system called Magic Pocket, which is designed to be more efficient and scalable than the previous system[@zeng2019identifying]. Rust has also been used to build a new proxy server called Edge, which has improved the performance and reliability of Dropbox's web services[@zeng2019identifying].
+
+- __Discord:__ Discord has been using Rust for several years to improve the performance and reliability of its chat and voice communication platform[@Fulton2021BenefitsAD]. Rust has been used to build several critical components of the platform, including the audio subsystem and the gateway server[@zeng2019identifying]. Rust has also been used to build a new caching system called LRU Cache, which has improved the performance and scalability of the platform[@zeng2019identifying].
+
+Both Dropbox and Discord have found Rust to be a valuable language for systems programming tasks, and they have been able to improve the performance and reliability of their infrastructure by using Rust. Rust's safety guarantees and performance have been particularly useful for these companies, as they deal with large amounts of data and require high levels of reliability and scalability. However, Rust's steep learning curve and limited library support have been identified as potential barriers to adoption
+[@Fulton2021BenefitsAD].
+
+Rust is a fast, safe, and concurrent programming language with a growing community of developers. Its unique features, such as memory safety and concurrency, make it a popular choice for systems programming and other applications. If you're interested in learning Rust, there are many resources available online, including example code and documentation[@tock2023][@rust][@rustembedded2023] .

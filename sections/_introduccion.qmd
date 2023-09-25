@@ -1,0 +1,11 @@
+# Introducción
+
+## Objetivo General
+Comparar tres algoritmos de búsqueda de nombres en una base de datos: fuerza bruta, uno basado en estrategia greedy/memoización y otro que utilice funciones de hash.
+
+## Objetivos Específicos
+- Crear una base de datos para realizar pruebas de rendimiento de los algoritmos.
+- Implementar un algoritmo de "fuerza bruta" para encontrar nombres en la base de datos.
+- Crear un mapa de combinaciones de letras que indique el índice donde comenzar y terminar la búsqueda utilizando las letras con las que inicia la palabra.
+- Implementar un algoritmo greedy utilizando el mapa de combinaciones de letras.
+- Implementar un algoritmo que utilice funciones de hash para identificar si la palabra ya existe en la base de datos.
