@@ -15,6 +15,9 @@ format:
     documentclass: IEEEtran
     classoption: [journal]
     cite-method: biblatex
+    include-in-header: 
+      - text: |
+          \usepackage{amsmath,amssymb}
     template-partials:
       - template/title.tex
       - template/before-body.tex

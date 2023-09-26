@@ -1,3 +1,18 @@
 # Metodología
 
 Se obtendrán 10,000 nombres o palabras únicas para crear la base de datos en la que se realizarán las búsquedas. Se implementarán los tres algoritmos mencionados anteriormente, y para cada uno se contará la cantidad de comparaciones realizadas antes de converger. Se considerará un conjunto de 100 palabras aleatorias para cada algoritmo, se medirá el tiempo de ejecución de cada búsqueda y se calculará el promedio de las 100 mediciones. Esto representará la "calificación" de cada algoritmo. El algoritmo más exitoso será aquel con una calificación más baja.
+
+Para abordar el desafío de buscar palabras en una base de datos, aplicaremos una estrategia ampliamente utilizada en la minería de datos: aprovechar las características de las funciones de hash para identificar valores. Una función de hash es capaz de tomar una entrada o *key* y generar una salida fija para cada *key*. A pesar de que esta asignación es determinista, la elección del valor de salida tiene una naturaleza uniformemente aleatoria dentro del set de posibles número a asignar para la *key*. Estos dos hechos permiten utilizar las funciones de hash como identificadores de valores, ya que, si una función de hash está bien definida, la probabilidad de que dos *key* compartan un conjunto de valores de hash es baja. Cuando comparten valores de hash se le llama "colisión". La probabilidad de colisiones es menor cuando se emplean funciones que vienen de la clase de funciones determinada por:
+
+$$
+\begin{aligned}
+\mathcal{H}(p, m) = ((a \cdot x + b) \mod p) \mod m \\
+\quad a, b \in \{0, 1, 2, \ldots, p-1\}
+\end{aligned}
+$$
+
+Donde $p$ es un número primo, $m$ el número de "barriles" a los cuales queremos asignar las salidas y $a$ y $b$ parametros a determinar a partir de $p$. Utilizar funciones que pertenecen a $\mathcal{H}(p, m)$ asegura que tendremos el número mínimo de colisiones.
+
+Para el problema de identificación de palabras, se crea un set $N$ de funciones que pertenecen a $\mathcal{H}(p, m)$ para diferentes valores de $p$ que se aplican a la representación decimal de la palabra y dichos valores de hash servirán para identificar si son o no iguales.
+
+**Lema:** Dos palabras tienen alta probabilidad de compartir $N$ valores de hash para $N$ funciones tal que $(h_1(x), h_2(x), ... ,h_N(x)) \in \mathcal{H}(p_{i}, m)$ donde $p_{i}$ es un número primo diferente usado como parametro y $m$ el número de palabras si y solo si, son la misma palabra
