@@ -3,7 +3,7 @@ title: "Comparación de algoritmos de busqueda de palabras en una base de datos"
 lang: es
 author:
   - name: Erick Muñoz Alvarado, Michael Sánchez Soto, Diego Solís Penaranda, Christopher Jiménez, Víctor A. Ortiz Ruiz
-    email: \{,viortiz\}\@estudiantec.cr
+    email: \{erickm968, sanchez.Soto.michael, Diego.solispenaranda, Cjimenez2581, voruiz\}\@gmail.com
 
 affiliations:
   - name: Instituto Tecnológico de Costa Rica
