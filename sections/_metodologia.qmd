@@ -15,4 +15,6 @@ Donde $p$ es un número primo, $m$ el número de "barriles" a los cuales queremo
 
 Para el problema de identificación de palabras, se crea un set $N$ de funciones que pertenecen a $\mathcal{H}(p, m)$ para diferentes valores de $p$ que se aplican a la representación decimal de la palabra y dichos valores de hash servirán para identificar si son o no iguales.
 
+![Ejecución del Algoritmo Fuerza Bruta](images/Ejecuta Algoritmo fuerza bruta.png){width=40%}
+
 **Lema:** Dos palabras tienen alta probabilidad de compartir $N$ valores de hash para $N$ funciones tal que $(h_1(x), h_2(x), ... ,h_N(x)) \in \mathcal{H}(p_{i}, m)$ donde $p_{i}$ es un número primo diferente usado como parametro y $m$ el número de palabras si y solo si, son la misma palabra
