@@ -5,10 +5,10 @@ Se obtendrán 10,000 nombres o palabras únicas para crear la base de datos en l
 Para abordar el desafío de buscar palabras en una base de datos, aplicaremos una estrategia ampliamente utilizada en la minería de datos: aprovechar las características de las funciones de hash para identificar valores. Una función de hash es capaz de tomar una entrada o *key* y generar una salida fija para cada *key*. A pesar de que esta asignación es determinista, la elección del valor de salida tiene una naturaleza uniformemente aleatoria dentro del set de posibles número a asignar para la *key*. Estos dos hechos permiten utilizar las funciones de hash como identificadores de valores, ya que, si una función de hash está bien definida, la probabilidad de que dos *key* compartan un conjunto de valores de hash es baja. Cuando comparten valores de hash se le llama "colisión". La probabilidad de colisiones es menor cuando se emplean funciones que vienen de la clase de funciones determinada por:
 
 $$
-\begin{aligned}
+\begin{gathered}
 \mathcal{H}(p, m) = ((a \cdot x + b) \mod p) \mod m \\
 \quad a, b \in \{0, 1, 2, \ldots, p-1\}
-\end{aligned}
+\end{gathered}
 $$
 
 Donde $p$ es un número primo, $m$ el número de "barriles" a los cuales queremos asignar las salidas y $a$ y $b$ parametros a determinar a partir de $p$. Utilizar funciones que pertenecen a $\mathcal{H}(p, m)$ asegura que tendremos el número mínimo de colisiones.
@@ -17,4 +17,47 @@ Para el problema de identificación de palabras, se crea un set $N$ de funciones
 
 ![Ejecución del Algoritmo Fuerza Bruta](images/Ejecuta Algoritmo fuerza bruta.png){width=40%}
 
+La ejecución del algoritmo de fuerza bruta de búsqueda de nombres muestra una ejecución lineal.
+
 **Lema:** Dos palabras tienen alta probabilidad de compartir $N$ valores de hash para $N$ funciones tal que $(h_1(x), h_2(x), ... ,h_N(x)) \in \mathcal{H}(p_{i}, m)$ donde $p_{i}$ es un número primo diferente usado como parametro y $m$ el número de palabras si y solo si, son la misma palabra
+
+## Aumento en la cantidad de colisiones con el aumento de la cantidad de funciones de hash
+
+Para probar la validez del lema propuesto es suficiente demostrar que la taza de falsos positivos que se espera del filtro es baja. Para obtener la probabilidad de tener falsos positivos es necesario calcular la fracción de 1s que va a tener el filtro y la probabilidad de escribir en ese mismo espacio con k funciones de hash.
+
+* Sea $n$ la cantidad de elementos a incertar en el filtro.
+* Sea $k$ la cantidad de funciones de hash a usar.
+* Sea $t$ el número de posibles 1 que pueden haber i.e. el tamaño del filtro.
+
+$$
+\begin{gathered}
+   P(escribir\;un\;1\;en\;cualquier\;elemento\;del\;filtro) = \frac{1}{t} \\ 
+   := P(elem)  \\
+   \\
+   P(no\;escribir\;un\;elemento) = 1 - P(elem) = 1 - \frac{1}{t} \\ 
+   := P(no-elem)
+\end{gathered}
+$$
+
+Sea $d$ los posibles elementos a incertar, es decir, $d = n\cdot k$
+La probabilidad de no escribir ningún elemento incertando $d$ posibles entonces es:
+
+$$
+\begin{gathered}
+   P(no-delem) = (1-\frac{1}{t})^d \\
+   \\
+   \therefore P(falso\; positivo) = 1 - (1-\frac{1}{t})^d
+\end{gathered}
+$$
+
+Entonces si quisieramos un taza de falsos positivos (FP) pre definida usariamos:
+
+$$
+\begin{gathered}
+   t = \frac{1}{1-(1-FP)^{1/k \cdot n}} \\
+   \\
+   t = \frac{1}{1-(1-0.01)^{1/4 \cdot 10000}} = 3\;979\;967
+\end{gathered}  
+$$
+
+El tamaño del filtro para asegurar un 1% de falsos positivos
