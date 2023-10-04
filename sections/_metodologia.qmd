@@ -2,6 +2,8 @@
 
 Se obtendrán 10,000 nombres o palabras únicas para crear la base de datos en la que se realizarán las búsquedas. Se implementarán los tres algoritmos mencionados anteriormente, y para cada uno se contará la cantidad de comparaciones realizadas antes de converger. Se considerará un conjunto de 100 palabras aleatorias para cada algoritmo, se medirá el tiempo de ejecución de cada búsqueda y se calculará el promedio de las 100 mediciones. Esto representará la "calificación" de cada algoritmo. El algoritmo más exitoso será aquel con una calificación más baja.
 
+![Datos utilizados para las pruebas](images/List of Names.png){width=40%}
+
 Para abordar el desafío de buscar palabras en una base de datos, aplicaremos una estrategia ampliamente utilizada en la minería de datos: aprovechar las características de las funciones de hash para identificar valores. Una función de hash es capaz de tomar una entrada o *key* y generar una salida fija para cada *key*. A pesar de que esta asignación es determinista, la elección del valor de salida tiene una naturaleza uniformemente aleatoria dentro del set de posibles número a asignar para la *key*. Estos dos hechos permiten utilizar las funciones de hash como identificadores de valores, ya que, si una función de hash está bien definida, la probabilidad de que dos *key* compartan un conjunto de valores de hash es baja. Cuando comparten valores de hash se le llama "colisión". La probabilidad de colisiones es menor cuando se emplean funciones que vienen de la clase de funciones determinada por:
 
 $$

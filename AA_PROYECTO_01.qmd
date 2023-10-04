@@ -28,11 +28,11 @@ format:
 abstract: |
   El uso de funciones de hash permite realizar búsquedas eficientes de datos y se ha implementado ampliamente en minería de datos. El problema que se busca resolver con un algoritmo similar es la búsqueda de nombres en una base de datos. Para ello, se implementarán y compararán tres algoritmos diferentes, y se determinará su tiempo de ejecución para demostrar la eficiencia que proporciona el uso de funciones de hash..
 keywords:
-  - Computer LanguagesH
-  - Fault Tolerance
-  - Memory Safety
-  - Programming
-  - Reliability
+  - Lenguajes
+  - Minería de Datos
+  - Algoritmo Hash
+  - Programación
+  - Algoritmo Fuerza Bruta
 bibliography: references.bib
 ---
 

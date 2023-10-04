@@ -1,3 +1,9 @@
 # Conclusiones
 
 Se espera que el algoritmo que implementa funciones de hash tenga el menor tiempo de ejecución de los tres.
+
+![Comparativa de tiempos de ejecución](images/Comparativa tiempos de Ejecucion.png){width=40%}
+
+![Comparativa a escala logarítmica de ejecuciones](images/Comparativa a escala logaritmica.png){width=40%}
+
+![Cantidad de colisiones](images/Colisiones Hash.png){width=40%}
