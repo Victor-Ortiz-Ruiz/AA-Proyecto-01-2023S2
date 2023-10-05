@@ -1,9 +1,70 @@
 # Conclusiones
 
+Para efectos de este proyecto, se crearon tres algoritmos con distintas estategias. Cada uno de los algortimos implementados, se ejecutaron utilizando como entrada, los datos del archivo de datos mostrado en @fig-datos. 
+
+Los algoritmos implementados fueron:
+
+1. Fuerza Bruta 
+2. Función Hash y
+3. Memorización (Greedy)
+
 Se espera que el algoritmo que implementa funciones de hash tenga el menor tiempo de ejecución de los tres.
 
-![Comparativa de tiempos de ejecución](images/Comparativa tiempos de Ejecucion.png){width=40%}
+## Tiempo de ejecución del algoritmo Fuerza Bruta
 
-![Comparativa a escala logarítmica de ejecuciones](images/Comparativa a escala logaritmica.png){width=40%}
+Un algoritmo de fuerza bruta resuelve un problema por agotamiento: pasa por todas las opciones posibles hasta encontrar una solución.
+La complejidad temporal de un algoritmo de fuerza bruta suele ser proporcional al tamaño de la entrada.
+Los algoritmos de fuerza bruta son simples y consistentes, pero muy lentos.
 
-![Cantidad de colisiones](images/Colisiones Hash.png){width=40%}
+![Tiempo Fuerza Bruta](images/Tiempo Fuerza Bruta.png){#fig-tmp-fb width=45%}
+
+La implementación realizada en este proyecto resuelve la busqueda de un nombre en 0,00000429 segundos. Ese resultado puede verse en la @fig-tmp-fb.
+
+## Tiempo de ejecución del algoritmo Hash
+
+Un **HASH** es una función matemática que convierte una entrada de longitud arbitraria en una salida cifrada de longitud fija. Por lo tanto, independientemente de la cantidad original de datos o del tamaño del archivo involucrado, su hash único siempre tendrá el mismo tamaño. Además, los **hashes** no se pueden utilizar para _"realizar ingeniería inversa"_ en la entrada de la salida hash, ya que las funciones hash son "unidireccionales" (como una picadora de carne; no se puede volver a poner la carne molida en un filete). Aún así, si usa dicha función en los mismos datos, su hash será idéntico, por lo que puede validar que los datos sean los mismos (es decir, sin cambios) si ya conoce su hash [@WhatHashHash]. 
+
+![Tiempo Función Hash](images/Tiempo Funcion Hash.png){#fig-tmp-hash width=40%}
+
+El algoritmo Hash se ejecutó tres veces con el fin de ver los tiempos resultantes. Estos tiempos iban desde 0,00000834 hasta 0,0000269 segundos. Los resultados se pueden ver en la @fig-tmp-hash.
+
+## Tiempo de ejecución del algortimo Memorización
+
+En informática, la memoización o memorización es una técnica de optimización que se utiliza principalmente para acelerar los programas de computadora almacenando los resultados de costosas llamadas a funciones en funciones puras y devolviendo el resultado almacenado en caché cuando las mismas entradas ocurren nuevamente. La memoización también se ha utilizado en otros contextos (y para fines distintos del aumento de velocidad), como en el análisis de descenso simple y mutuamente recursivo. Es un tipo de almacenamiento en caché, distinto de otras formas de almacenamiento en caché, como el almacenamiento en búfer y el reemplazo de páginas. En el contexto de algunos lenguajes de programación lógica, la memoización también se conoce como tabulación [@Memoization2023].
+
+![Tiempo Memoizacion](images/Tiempo Greedy Memoizacion.png){#fig-tmp-memo width=45%}
+
+Este algoritmo mostró un tiemo de respuesta de 0,0000774.  La @fig-tmp-memo muestra el resultado en Colab de Google.
+
+## Comparativas
+
+Como suele suceder, la ejecución de los algoritmos por separado no son fáciles de visualizar. El hecho de poder tener un resultado del tiempo por separado puede llevar a equivocaciones.
+
+\begin{tabular}{|l|r|}
+  \hline
+  Algoritmo      & Segundos   \\
+  \hline
+  Fuerza Bruta   & 0,00000429 \\
+  Función Hash 1 & 0,00000834 \\
+  Función Hash 2 & 0,00002694 \\
+  Memoización   & 0,00007748 \\
+  \hline
+ \end{tabular}
+
+A pesar de poder crear una tabla con los resultados individuales, requiere un gran esfuerzo para comprenderlos. Además, estos resultados son solo un instante en el tiempo de una sola muestra por algoritmo.
+
+Una vez creados los algoritmos, se pudieron generar gráficas donde se combinan los resultados de las ejecuciones. Para esta batería de gráficas se tomó una muestra de 5000 (Cinco Mil) palabras.
+
+![Comparativa de tiempos de ejecución](images/Comparativa tiempos de Ejecucion.png){#fig-comp-tiempos width=40%}
+
+La @fig-comp-tiempos muestra, en distintos colores, el resultado obtenido con los tres algoritmos.  Quizás, lo más interesante del resultado es que el algoritmo Hash casi no tiene outliers (valores atípicos).
+
+![Comparativa a escala logarítmica de ejecuciones](images/Comparativa a escala logaritmica.png){#fig-comp-log width=40%}
+
+Para ver con mayor detalle la distribución de los tiempos, se hace una escalación algorítmica.  La @fig-comp-log muestra, utilizando los mismos colores para cada algoritmo, como la función _Hash_ se mantiene estable en el tiempo.
+
+![Cantidad de colisiones](images/Colisiones Hash.png){#fig-colision width=40%}
+
+La @fig-colision muestra como el algoritmo Hash presenta colisiones. En la subsección _**Aumento en la cantidad de colisiones con el aumento de la cantidad de funciones de hash**_ se explica la razón matemática de este comportamiento.
+
+Se puede concluir, por la @fig-comp-log, que el algoritmo mas eficiente, a pesar de las colisiones, es la busqueda utilizando algoritmos **HASH**.

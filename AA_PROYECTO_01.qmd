@@ -18,6 +18,7 @@ format:
     include-in-header: 
       - text: |
           \usepackage{amsmath,amssymb}
+          \usepackage{longtable,booktabs}
     template-partials:
       - template/title.tex
       - template/before-body.tex
