@@ -1,4 +1,4 @@
-# Conclusiones
+# Resultados
 
 Para efectos de este proyecto, se crearon tres algoritmos con distintas estategias. Cada uno de los algortimos implementados, se ejecutaron utilizando como entrada, los datos del archivo de datos mostrado en @fig-datos. 
 
@@ -6,7 +6,7 @@ Los algoritmos implementados fueron:
 
 1. Fuerza Bruta 
 2. Función Hash y
-3. Memorización (Greedy)
+3. Memoización (Greedy)
 
 Se espera que el algoritmo que implementa funciones de hash tenga el menor tiempo de ejecución de los tres.
 
@@ -53,18 +53,43 @@ Como suele suceder, la ejecución de los algoritmos por separado no son fáciles
 
 A pesar de poder crear una tabla con los resultados individuales, requiere un gran esfuerzo para comprenderlos. Además, estos resultados son solo un instante en el tiempo de una sola muestra por algoritmo.
 
+Utilizando la tabla, con resultados de una busqueda, podemos ver algunos resultados que nos pueden llevar a errores:
+
+* El resultado mas bajo es el de "Fuerza Bruta" con 0,00000429 segundos, lo cual nos puede hacer creer que es el mejor algoritmo para la busqueda.
+* El resultado de la segunda corrida del algoritmo utilizando funciones HASH, de un resultado de 0,00002694 segundos, lo cual nos puede indicar que no es el peor algoritmo pero que no es bueno para las busqueda.
+* El resultado de la meomización nos indicaría que es un algoritmo que se debe desechar.
+
 Una vez creados los algoritmos, se pudieron generar gráficas donde se combinan los resultados de las ejecuciones. Para esta batería de gráficas se tomó una muestra de 5000 (Cinco Mil) palabras.
 
-![Comparativa de tiempos de ejecución](images/Comparativa tiempos de Ejecucion.png){#fig-comp-tiempos width=40%}
+![Comparativa de tiempos de ejecución](images/Comparativa tiempos de Ejecucion.png){#fig-comp-tiempos width=45%}
 
 La @fig-comp-tiempos muestra, en distintos colores, el resultado obtenido con los tres algoritmos.  Quizás, lo más interesante del resultado es que el algoritmo Hash casi no tiene outliers (valores atípicos).
 
-![Comparativa a escala logarítmica de ejecuciones](images/Comparativa a escala logaritmica.png){#fig-comp-log width=40%}
+![Comparativa a escala logarítmica de ejecuciones](images/Comparativa a escala logaritmica.png){#fig-comp-log width=45%}
 
 Para ver con mayor detalle la distribución de los tiempos, se hace una escalación algorítmica.  La @fig-comp-log muestra, utilizando los mismos colores para cada algoritmo, como la función _Hash_ se mantiene estable en el tiempo.
 
-![Cantidad de colisiones](images/Colisiones Hash.png){#fig-colision width=40%}
+![Cantidad de colisiones](images/Colisiones Hash.png){#fig-colision width=45%}
 
 La @fig-colision muestra como el algoritmo Hash presenta colisiones. En la subsección _**Aumento en la cantidad de colisiones con el aumento de la cantidad de funciones de hash**_ se explica la razón matemática de este comportamiento.
 
-Se puede concluir, por la @fig-comp-log, que el algoritmo mas eficiente, a pesar de las colisiones, es la busqueda utilizando algoritmos **HASH**.
+# Conclusiones
+
+Luego de ver las ejecuciones individuales, y crear una pequeña tabla con la información obtenida, vemos que un instante en el tiempo no es suficiente para poder declarar mejor un algoritmo de otro.
+
+La utilización de miles de busquedas permite ver el comportamiento de cada algoritmo, siendo utilizado de manera masiva. Cada algoritmo fue enfrentado a una busqueda de 5000 palabras, con lo cual se pueden ver los tiempos utilizados en tractos de 2.000 (dos mil) palabras. 
+
+En la @fig-comp-tiempos, vemos como los algoritmos utilizan tiempos que no llegan a 0,002 segundos, manteniendose muy estable la busqueda por funciones **HASH**.  Las funciones _HASH_ son tan eficientes que aún sus outliers muestran tiempos con valores por debajo de los 0,001 segundos.
+
+A pesar que la tabla de resultados nos indicaba que el mejor algoritmo de busqueda era el de **_"Fuerza Bruta"_**, Se puede concluir por la @fig-comp-log, que el algoritmo mas eficiente, a pesar de las colisiones, es la busqueda utilizando funciones **HASH**.
+
+Además, esa gráfica (ver @fig-comp-log) nos muestra que los tres algoritmos tienen tiempos de respuesta muy similares con la busqueda de 750 palabras.  Luego de esa cantidad de valores para busqueda, se nota como el algoritmo de **Fuerza Bruta** es el que tiene los peores tiempos de respuesta y el **algoritmo con memoización** que según la tabla era el peor, es mejor que el de _"Fuerza Bruta"_.
+
+Al final, el orden de los algoritmos ordenados de menor tiempo de respuesta a los peores tiempos de respuesta, quedaría de la siguiente forma:
+
+1. Función Hash (El mejor)
+2. Memoización (Intermedio)
+3. Fuerza Bruta (El peor)
+
+\\
+\\
